@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using OyunSitesi.VeriTabani;
 
@@ -15,6 +16,17 @@ namespace OyunSitesi
                 opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
                
             });
+            builder.Services
+               .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+               .AddCookie(opts =>
+               {
+                   opts.Cookie.Name = ".WebOdev.auth";
+                   opts.ExpireTimeSpan = TimeSpan.FromDays(7);
+                   opts.SlidingExpiration = false;
+                   opts.LoginPath = "/Giris/Giris";
+                   opts.LogoutPath = "/Cikis/Cikis";
+                   opts.AccessDeniedPath = "/Home/Index";
+               });
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
@@ -31,7 +43,7 @@ namespace OyunSitesi
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
