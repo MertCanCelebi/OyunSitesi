@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using OyunSitesi.VeriTabani;
+
 namespace OyunSitesi
 {
     public class Program
@@ -7,6 +10,11 @@ namespace OyunSitesi
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddDbContext<DataBaseContext>(opts =>
+            {
+                opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+               
+            });
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
