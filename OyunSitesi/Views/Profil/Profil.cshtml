@@ -23,17 +23,21 @@
                     <input name="AdSoyad" type="text" class="form-control" value="@ViewData["AdSoyad"]" />
                     <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>Kaydet</button>
                 </div>
+                 @if (ViewData["result"] != null && ViewData["result"] == "AdDegisikligi")
+                {
+                    <span class="text-success small">Ad Değiştirildi</span>
+                }
             </div>
         </form>
 
         <form method="post" asp-controller="Profil" asp-action="SifreDegisikligi">
-            <div class="form-group">
+            <div class="form-group ">
                 <label class="form-label small">Yeni Şifre</label>
                 <div class="input-group">
                     <input name="Sifre" type="password" class="form-control" />
                     <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>Kaydet</button>
                 </div>
-                @if (ViewData["result"] != null && ViewData["result"] == "PasswordChanged")
+                @if (ViewData["result"] != null && ViewData["result"] == "SifreDegisikligi")
                 {
                     <span class="text-success small">Şifre Değiştirildi</span>
                 }
@@ -42,3 +46,17 @@
 
     </div>
 </div>
+@section Scripts{
+    @if (ViewData["result"] != null && ViewData["result"] == "SifreDegisikligi")
+    {
+                <script>
+                    toastr["success"]("Şireniz değiştirilmiştir.", "Şifre Değişti!");
+                </script>
+    }
+     @if (ViewData["result"] != null && ViewData["result"] == "AdDegisikligi")
+    {
+                <script>
+                    toastr["success"]("İsminiz değiştirilmiştir.", "İsim Değişti!");
+                </script>
+    }
+}

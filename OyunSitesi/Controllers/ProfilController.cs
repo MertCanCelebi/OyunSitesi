@@ -37,7 +37,9 @@ namespace OyunSitesi.Controllers
                 Kullanici kullanici = veritabaniBaglanti.Kullanicilar.SingleOrDefault(x => x.Id == userid);
 
                 kullanici.AdSoyad = AdSoyad;
-                veritabaniBaglanti.SaveChanges();               
+                veritabaniBaglanti.SaveChanges();
+
+                ViewData["result"] = "AdDegisikligi";
             }
 
             ProfileBilgileri();
@@ -54,7 +56,7 @@ namespace OyunSitesi.Controllers
                 kullanici.Sifre= Sifre;
                 veritabaniBaglanti.SaveChanges();
 
-                ViewData["result"] = "PasswordChanged";
+                ViewData["result"] = "SifreDegisikligi";
             }
 
             ProfileBilgileri();
