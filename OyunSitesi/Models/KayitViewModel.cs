@@ -4,6 +4,7 @@ namespace OyunSitesi.Models
 {
     public class KayitViewModel
     {
+
         [Required(ErrorMessage = "Kullanici Adinizi Giriniz.")]
         [DataType(DataType.EmailAddress)]
         [StringLength(30, ErrorMessage = "Kullanici Adi Maksimum 30 Karakterli Olmalı.")]

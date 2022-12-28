@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using OyunSitesi.Models;
+using OyunSitesi.VeriTabani;
 using System.Diagnostics;
 
 namespace OyunSitesi.Controllers
@@ -7,15 +9,24 @@ namespace OyunSitesi.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly DataBaseContext veritabaniBaglanti;
+        private readonly IMapper _mapper;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(DataBaseContext veritabaniBaglanti1, IMapper mapper,ILogger<HomeController> logger)
         {
+
+            veritabaniBaglanti = veritabaniBaglanti1;
+            _mapper = mapper;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<KategoriModel> kategoriler =
+               veritabaniBaglanti.Kategoriler.ToList()
+                   .Select(x => _mapper.Map<KategoriModel>(x)).ToList();
+
+            return View(kategoriler);
         }
 
         public IActionResult Privacy()

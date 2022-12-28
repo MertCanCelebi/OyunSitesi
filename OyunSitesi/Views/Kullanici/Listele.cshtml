@@ -1,0 +1,49 @@
+﻿@model List<KullaniciModel>
+@{
+    ViewData["Title"] = "Kulanicilar";
+}
+
+<div class="row">
+    <div class="col">
+        <h1 class="display-4">@ViewData["Title"]</h1>
+        <hr />
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col">
+        <a asp-action="Ekle" class="btn btn-primary btn-sm"><i class="fa fa-plus me-2"></i>Yeni Kullanıcı</a>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col">
+        <table class="table table-hover table-sm">
+            <thead>
+                <tr>
+                    <th>AdSoyad</th>
+                    <th>KullaniciAdi</th>
+                    <th>Rol</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (KullaniciModel user in Model)
+                {
+                    <tr>
+                        <td>@user.AdSoyad</td>
+                        <td>@user.KullaniciAdi</td>
+        
+                        <td>@user.Rol</td>
+                        <td class="text-end">
+                            <a asp-action="Duzenle" asp-route-id="@user.Id" class="btn btn-info btn-sm text-white"><i class="fa fa-edit me-2"></i>Düzenle</a>
+                            <a asp-action="Sil" asp-route-id="@user.Id"
+                           onclick="return confirm('Bu Kullanıcıyı Silmek İstiyor Musunuz? : @user.KullaniciAdi ?')"
+                           class="btn btn-danger btn-sm"><i class="fa fa-trash me-2"></i>Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
