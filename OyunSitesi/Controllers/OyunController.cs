@@ -1,12 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using OyunSitesi.Models;
+using OyunSitesi.VeriTabani;
 
 namespace OyunSitesi.Controllers
 {
     public class OyunController : Controller
     {
+        private readonly ILogger<HomeController> _logger;
+        private readonly DataBaseContext veritabaniBaglanti;
+        private readonly IMapper _mapper;
+
+        public OyunController(DataBaseContext veritabaniBaglanti1, IMapper mapper, ILogger<HomeController> logger)
+        {
+
+            veritabaniBaglanti = veritabaniBaglanti1;
+            _mapper = mapper;
+            _logger = logger;
+        }
         public IActionResult Index()
         {
-            return View();
+            List<KategoriModel> kategoriler =
+              veritabaniBaglanti.Kategoriler.ToList()
+                  .Select(x => _mapper.Map<KategoriModel>(x)).ToList();
+
+            return View(kategoriler);
         }
     }
 }

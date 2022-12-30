@@ -42,7 +42,7 @@ namespace OyunSitesi.Controllers
 
                     HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                    return RedirectToAction("Yetki", "Yetki");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
