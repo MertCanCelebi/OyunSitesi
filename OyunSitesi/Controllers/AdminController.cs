@@ -122,5 +122,6 @@ namespace OyunSitesi.Controllers
 
             return RedirectToAction(nameof(YorumListele));
         }
+       
     }
 }

@@ -9,7 +9,7 @@ namespace OyunSitesi.VeriTabani
         [Key]
         public int Id { get; set; }
 
-        
+        public int KullaniciId { get; set; }
         public int OyunId { get; set; }
 
         [StringLength(100000)]

@@ -18,6 +18,7 @@
                 <tr>
                     <th>Yorum Icerik</th>
                     <th>Oyun Id</th>
+                    <th>Kullanici Id</th>
                     <th></th>
                 </tr>
             </thead>
@@ -28,6 +29,7 @@
                       
                         <td>@user.YorumIcerik</td>
                         <td>@user.OyunId</td>
+                        <td>@user.KullaniciId</td>
                         <td class="text-end">     
                             <a asp-action="YorumSil" asp-route-id="@user.Id"
                            onclick="return confirm('Bu Yorumu Silmek İstiyor Musunuz? : @user.YorumIcerik ?')"

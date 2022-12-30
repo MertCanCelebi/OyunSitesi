@@ -2,12 +2,35 @@
 
 namespace OyunSitesi.Models
 {
-    //public class KategoriModel
-    //{
-    //    public int Id { get; set; }
-    //    public string? Ad { get; set; } = null;
-       
-    //}
+    public class KategoriModel
+    {
+        public int Id { get; set; }
+        public string? Ad { get; set; } = null;
+
+    }
+    public class YorumModel
+    {
+        public int Id { get; set; }
+
+        public int KullaniciId { get; set; }
+        public int OyunId { get; set; }
+
+        public string YorumIcerik { get; set; }
+
+    }
+    public class YorumEkleModel
+    {
+        [Key]
+        public int Id { get; set; }
+
+        public int KullaniciId { get; set; }
+
+        public int OyunId { get; set; }
+
+        [StringLength(100000)]
+        public string YorumIcerik { get; set; }
+
+    }
     public class OyunModel
     {
        

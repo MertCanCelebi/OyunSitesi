@@ -2,15 +2,15 @@
 
 namespace OyunSitesi.Models
 {
-    public class YorumModel
-    {
-        [Key]
-        public int Id { get; set; }
+    //public class YorumModel
+    //{
+    //    [Key]
+    //    public int Id { get; set; }
 
 
-        public int OyunId { get; set; }
+    //    public int OyunId { get; set; }
 
-        public string YorumIcerik { get; set; }
-    }
+    //    public string YorumIcerik { get; set; }
+    //}
    
 }

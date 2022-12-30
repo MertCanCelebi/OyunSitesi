@@ -1,7 +1,7 @@
 ﻿@using OyunSitesi.VeriTabani;
 @model List<OyunModel>
 @{
-    Kategori kategori1 = ViewBag.Kategori;
+    Oyun kategori1 = ViewBag.Kategori;
 }
 <head>
     <meta charset="utf-8" />
@@ -64,7 +64,7 @@
                                 <a asp-controller="Oyun" asp-action="Index" asp-route-id="@kategori.Id">
                                     <h4>@kategori.OyunAd</h4></a>
                                 <ul class="post-info">                                    
-                                    <li><a href="#">@kategori.Yorum Comments</a></li>
+                                    <li>@kategori.Yorum Comments</li>
                                 </ul>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                                             <a asp-controller="Oyun" asp-action="Index"><h4>@kategori.OyunAd</h4></a>
                                             <ul class="post-info">
                                                
-                                                <li><a href="#">@kategori.Yorum Comments</a></li>
+                                                <li>@kategori.Yorum Comments</li>
                                             </ul>
                                             <p>@kategori.Icerik <a rel="nofollow" href="https://templatemo.com/contact" target="_parent">Contact TemplateMo</a> for more info. Thank you.</p>
                                             

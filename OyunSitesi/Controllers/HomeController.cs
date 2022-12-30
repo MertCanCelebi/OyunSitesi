@@ -19,7 +19,19 @@ namespace OyunSitesi.Controllers
             _mapper = mapper;
             _logger = logger;
         }
+        [HttpGet]
+        public IActionResult Detail(int id)
+        {
+           
+            Oyun oyun =veritabaniBaglanti.Oyunlar.FirstOrDefault(I => I.Id ==id);
 
+            var query = (from k in veritabaniBaglanti.Oyunlar
+                         where oyun.Id == k.Id
+                         select new Oyun() { Id = k.Id, OyunAd = k.OyunAd, Icerik = k.Icerik,Resim=k.Resim,KategoriId=k.KategoriId,Yorum=k.Yorum }).ToList();
+         
+            ViewBag.oyun = oyun;
+            return View(new Oyun());
+        }
         public IActionResult Index()
         {
             List<OyunModel> kategoriler =
