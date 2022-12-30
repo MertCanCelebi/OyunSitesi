@@ -1,0 +1,63 @@
+﻿@model OyunEkleModel
+@{
+    ViewData["Title"] = "Oyun Ekle";
+}
+
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <h1 class="display-4 border-bottom text-center pb-2">@ViewData["Title"]</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="OyunAd" class="form-label">OyunAd</label>
+                <input asp-for="OyunAd" class="form-control" />
+                <span asp-validation-for="OyunAd" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Icerik" class="form-label">Icerik</label>
+                <input asp-for="Icerik" class="form-control" />
+                <span asp-validation-for="Icerik" class="text-danger small"></span>
+            </div>
+
+
+
+            <div class="form-group mb-3">
+                <label asp-for="KategoriId" class="form-label">KategoriId</label>
+                <select asp-for="KategoriId" class="form-select">
+                    <option value=0>Seçiniz</option>
+                    <option value=1>Simulasyon</option>
+                    <option value=2>FPS</option>
+                    <option value=3>Korku</option>
+                    <option value=4>Aksiyon</option>
+                    <option value=5>Yarış</option>
+                    <option value=6>Strateji</option>
+                    <option value=7>Spor</option>
+                </select>
+                <span asp-validation-for="KategoriId" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Resim" class="form-label">Resim</label>
+                <input asp-for="Resim" class="form-control" />
+                <span asp-validation-for="Resim" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Yorum" class="form-label">yorum</label>
+                <input asp-for="Yorum" class="form-control" />
+                <span asp-validation-for="Yorum" class="text-danger small"></span>
+            </div>
+          
+
+            <div class="form-group mb-3">
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save me-2"></i>Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>

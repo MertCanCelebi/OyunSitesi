@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OyunSitesi.VeriTabani;
 
@@ -10,9 +11,10 @@ using OyunSitesi.VeriTabani;
 namespace OyunSitesi.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20221230144146_OyunTabloGuncelleme")]
+    partial class OyunTabloGuncelleme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,27 +102,6 @@ namespace OyunSitesi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Oyunlar");
-                });
-
-            modelBuilder.Entity("OyunSitesi.VeriTabani.Yorum", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("OyunId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("YorumIcerik")
-                        .IsRequired()
-                        .HasMaxLength(100000)
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Yorumlar");
                 });
 #pragma warning restore 612, 618
         }

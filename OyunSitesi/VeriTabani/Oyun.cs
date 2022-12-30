@@ -15,11 +15,10 @@ namespace OyunSitesi.VeriTabani
         [StringLength(100000)]
         public string Icerik { get; set; }
 
-        [StringLength(200)]
-        public string Yorum { get; set; }
+       
+        public int Yorum { get; set; }
 
         [Required]
-        [StringLength(20)]
         public int KategoriId { get; set; }
 
         public string Resim { get; set; }

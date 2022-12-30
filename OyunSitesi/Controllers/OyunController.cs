@@ -18,13 +18,12 @@ namespace OyunSitesi.Controllers
             _mapper = mapper;
             _logger = logger;
         }
-        public IActionResult Index()
+        public IActionResult Index(int id)
         {
-            List<OyunModel> oyunlar =
-              veritabaniBaglanti.Oyunlar.ToList()
-                  .Select(x => _mapper.Map<OyunModel>(x)).ToList();
+            Oyun oyun = veritabaniBaglanti.Oyunlar.Find(id);
+   
 
-            return View(oyunlar);
+            return View(oyun);
         }
     }
 }

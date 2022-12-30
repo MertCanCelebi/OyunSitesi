@@ -1,4 +1,4 @@
-﻿@model List<KategoriModel>
+﻿@model List<OyunModel>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -237,11 +237,11 @@
                                         <h2>Kategoriler</h2>
                                     </div>
                                     <div class="content">
-                                        @foreach (KategoriModel kategori in Model)
+                                        @foreach (OyunModel kategori in Model)
                                         {
                                             <li>
                                                 <a asp-controller="Oyun" asp-action="Index">
-                                                    <td>@kategori.Ad</td>
+                                                    <td>@kategori.OyunAd</td>
                                                 </a>
                                             </li>
 
