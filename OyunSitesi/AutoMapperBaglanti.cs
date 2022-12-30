@@ -12,6 +12,7 @@ namespace OyunSitesi
             CreateMap<Kullanici, KullaniciEkleModel>().ReverseMap();
             CreateMap<Kullanici, KullaniciDuzenleModel>().ReverseMap();
             CreateMap<Kategori, KategoriModel>().ReverseMap();
+            CreateMap<Oyun,OyunModel>().ReverseMap();
 
         }
     }

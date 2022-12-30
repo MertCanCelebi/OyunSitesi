@@ -20,11 +20,11 @@ namespace OyunSitesi.Controllers
         }
         public IActionResult Index()
         {
-            List<KategoriModel> kategoriler =
-              veritabaniBaglanti.Kategoriler.ToList()
-                  .Select(x => _mapper.Map<KategoriModel>(x)).ToList();
+            List<OyunModel> oyunlar =
+              veritabaniBaglanti.Oyunlar.ToList()
+                  .Select(x => _mapper.Map<OyunModel>(x)).ToList();
 
-            return View(kategoriler);
+            return View(oyunlar);
         }
     }
 }
