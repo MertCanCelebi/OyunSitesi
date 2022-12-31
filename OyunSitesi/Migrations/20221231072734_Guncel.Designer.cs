@@ -11,8 +11,8 @@ using OyunSitesi.Models;
 namespace OyunSitesi.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20221230201835_YorumTablosu Guncelleme")]
-    partial class YorumTablosuGuncelleme
+    [Migration("20221231072734_Guncel")]
+    partial class Guncel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -101,6 +101,8 @@ namespace OyunSitesi.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("KategoriId");
+
                     b.ToTable("Oyunlar");
                 });
 
@@ -125,7 +127,56 @@ namespace OyunSitesi.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("KullaniciId");
+
+                    b.HasIndex("OyunId");
+
                     b.ToTable("Yorumlar");
+                });
+
+            modelBuilder.Entity("OyunSitesi.VeriTabani.Oyun", b =>
+                {
+                    b.HasOne("OyunSitesi.VeriTabani.Kategori", "Kategori")
+                        .WithMany("Oyunlar")
+                        .HasForeignKey("KategoriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Kategori");
+                });
+
+            modelBuilder.Entity("OyunSitesi.VeriTabani.Yorum", b =>
+                {
+                    b.HasOne("OyunSitesi.VeriTabani.Kullanici", "Kullanici")
+                        .WithMany("Yorumlar")
+                        .HasForeignKey("KullaniciId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OyunSitesi.VeriTabani.Oyun", "Oyun")
+                        .WithMany("Yorumlar")
+                        .HasForeignKey("OyunId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Kullanici");
+
+                    b.Navigation("Oyun");
+                });
+
+            modelBuilder.Entity("OyunSitesi.VeriTabani.Kategori", b =>
+                {
+                    b.Navigation("Oyunlar");
+                });
+
+            modelBuilder.Entity("OyunSitesi.VeriTabani.Kullanici", b =>
+                {
+                    b.Navigation("Yorumlar");
+                });
+
+            modelBuilder.Entity("OyunSitesi.VeriTabani.Oyun", b =>
+                {
+                    b.Navigation("Yorumlar");
                 });
 #pragma warning restore 612, 618
         }

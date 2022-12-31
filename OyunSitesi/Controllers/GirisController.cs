@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using OyunSitesi.Models;
 using System.Security.Claims;
-using OyunSitesi.VeriTabani;
 
 namespace OyunSitesi.Controllers
 {

@@ -1,4 +1,4 @@
-﻿@using OyunSitesi.VeriTabani;
+﻿
 @model List<OyunModel>
 @{
     Oyun kategori1 = ViewBag.Kategori;
@@ -61,7 +61,7 @@
                                     <span>@kategori.KategoriId</span>
                                     
                                 </div>
-                                <a asp-controller="Oyun" asp-action="Index" asp-route-id="@kategori.Id">
+                                <a asp-controller="Home" asp-action="Detail" asp-route-id="@kategori.Id">
                                     <h4>@kategori.OyunAd</h4></a>
                                 <ul class="post-info">                                    
                                     <li>@kategori.Yorum Comments</li>

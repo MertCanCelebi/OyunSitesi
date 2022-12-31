@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OyunSitesi.VeriTabani;
+using OyunSitesi.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 

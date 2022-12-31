@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using OyunSitesi.Models;
-using OyunSitesi.VeriTabani;
 namespace OyunSitesi
 {
     public class AutoMapperBaglanti:Profile

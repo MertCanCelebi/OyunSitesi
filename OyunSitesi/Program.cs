@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using OyunSitesi.VeriTabani;
+using OyunSitesi.Models;
 using System.Reflection;
 
 namespace OyunSitesi

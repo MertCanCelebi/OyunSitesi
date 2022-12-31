@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using OyunSitesi.Models;
-using OyunSitesi.VeriTabani;
 
 namespace OyunSitesi.Controllers
 {

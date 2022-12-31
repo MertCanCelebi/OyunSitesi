@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OyunSitesi.Models;
-using OyunSitesi.VeriTabani;
 
 namespace OyunSitesi.Controllers
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace OyunSitesi.VeriTabani
+namespace OyunSitesi.Models
 {
     public class DataBaseContext : DbContext
     {

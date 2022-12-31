@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OyunSitesi.VeriTabani
+namespace OyunSitesi.Models
 {
     [Table("Kullanicilar")]
     public class Kullanici
@@ -23,5 +23,7 @@ namespace OyunSitesi.VeriTabani
         [Required]
         [StringLength(20)]
         public string Rol { get; set; } = "kullanici";
+
+        virtual public ICollection<Yorum> Yorumlar { get; set; }
     }
 }
