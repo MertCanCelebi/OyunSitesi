@@ -1,10 +1,14 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OyunSitesi.Models;
+using System.Data;
 using System.Security.Claims;
 
 namespace OyunSitesi.Controllers
 {
+
+    [Authorize(Roles = "kullanici,admin")]
     public class KategoriController : Controller
     {
         private readonly DataBaseContext veritabaniBaglanti;
