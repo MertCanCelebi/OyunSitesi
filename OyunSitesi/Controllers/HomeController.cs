@@ -1,12 +1,18 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OyunSitesi.Models;
+using System.Data;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace OyunSitesi.Controllers
 {
+    [Authorize(Roles = "kullanici,admin")]
     public class HomeController : Controller
     {
+
+     
         private readonly ILogger<HomeController> _logger;
         private readonly DataBaseContext veritabaniBaglanti;
         private readonly IMapper _mapper;
@@ -24,29 +30,42 @@ namespace OyunSitesi.Controllers
            
             Oyun oyun =veritabaniBaglanti.Oyunlar.FirstOrDefault(I => I.Id ==id);
 
-            var query = (from k in veritabaniBaglanti.Oyunlar
-                         where oyun.Id == k.Id
-                         select new Oyun() { Id = k.Id, OyunAd = k.OyunAd, Icerik = k.Icerik,Resim=k.Resim,KategoriId=k.KategoriId,Yorum=k.Yorum }).ToList();
+            //var query = (from k in veritabaniBaglanti.Oyunlar
+            //             where oyun.Id == k.Id
+            //             select new Oyun() { Id = k.Id, OyunAd = k.OyunAd, Icerik = k.Icerik,Resim=k.Resim,KategoriId=k.KategoriId,Yorum=k.Yorum }).ToList();
 
             var query1 = (from k in veritabaniBaglanti.Yorumlar
                          where oyun.Id == k.OyunId
                          select new Yorum() { Id = k.Id, YorumIcerik = k.YorumIcerik, OyunId = k.OyunId, KullaniciId = k.KullaniciId }).ToList();
 
-          
 
-            var kullaniciId = Request.Cookies["id"];
-           //Kullanici user = veritabaniBaglanti.Kullanicilar.FirstOrDefault(a => a.Id == kullaniciId);
+
+            int userid = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            Kullanici kullanici = veritabaniBaglanti.Kullanicilar.SingleOrDefault(x => x.Id == userid);
+
+            ViewBag.kullanici = kullanici;
             ViewBag.oyun = oyun;
             ViewBag.yorumlar = query1;           
-            return View(new Oyun());
+            return View(new Yorum());
+        }
+        [HttpPost]
+        public IActionResult YorumEkle(Yorum yorum)
+        {
+            veritabaniBaglanti.Yorumlar.Add(yorum);
+            veritabaniBaglanti.SaveChanges();
+            return RedirectToAction("Detail", new { id = yorum.OyunId });
+
         }
         public IActionResult Index()
         {
-            List<OyunModel> kategoriler =
+            List<OyunModel> oyunlar =
                veritabaniBaglanti.Oyunlar.ToList()
                    .Select(x => _mapper.Map<OyunModel>(x)).ToList();
 
-            return View(kategoriler);
+   
+
+
+            return View(oyunlar);
         }
 
        
