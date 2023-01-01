@@ -30,10 +30,7 @@ namespace OyunSitesi.Controllers
            
             Oyun oyun =veritabaniBaglanti.Oyunlar.FirstOrDefault(I => I.Id ==id);
 
-            //var query = (from k in veritabaniBaglanti.Oyunlar
-            //             where oyun.Id == k.Id
-            //             select new Oyun() { Id = k.Id, OyunAd = k.OyunAd, Icerik = k.Icerik,Resim=k.Resim,KategoriId=k.KategoriId,Yorum=k.Yorum }).ToList();
-
+           
             var query1 = (from k in veritabaniBaglanti.Yorumlar
                          where oyun.Id == k.OyunId
                          select new Yorum() { Id = k.Id, YorumIcerik = k.YorumIcerik, OyunId = k.OyunId, KullaniciId = k.KullaniciId }).ToList();
@@ -61,10 +58,6 @@ namespace OyunSitesi.Controllers
             List<OyunModel> oyunlar =
                veritabaniBaglanti.Oyunlar.ToList()
                    .Select(x => _mapper.Map<OyunModel>(x)).ToList();
-
-   
-
-
             return View(oyunlar);
         }
 

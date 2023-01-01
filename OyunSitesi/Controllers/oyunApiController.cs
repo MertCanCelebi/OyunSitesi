@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OyunSitesi.Models;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace OyunSitesi.Controllers
 {
     [Route("api/[controller]")]
@@ -15,14 +13,12 @@ namespace OyunSitesi.Controllers
             context = _context;
         }
 
-        // GET: api/<oyunApiController>
         [HttpGet]
         public IEnumerable<Oyun> Get()
         {
             return context.Oyunlar.ToList();
         }
 
-        // GET api/<oyunApiController>/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -36,8 +32,6 @@ namespace OyunSitesi.Controllers
                 return Ok(game);
             }
         }
-
-        // POST api/<oyunApiController>
         [HttpPost]
         public IActionResult Post([FromBody] Oyun newGame)
         {
@@ -50,13 +44,12 @@ namespace OyunSitesi.Controllers
             return Ok(gameName);
         }
 
-        // PUT api/<oyunApiController>/5
+
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<oyunApiController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

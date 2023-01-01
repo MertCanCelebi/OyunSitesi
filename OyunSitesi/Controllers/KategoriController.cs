@@ -30,7 +30,6 @@ namespace OyunSitesi.Controllers
         }
         public IActionResult KategoriOyun(int id)
         {
-
             List<OyunModel> Oyunlar =
               veritabaniBaglanti.Oyunlar.ToList()
               .Where(x => x.KategoriId == id)
