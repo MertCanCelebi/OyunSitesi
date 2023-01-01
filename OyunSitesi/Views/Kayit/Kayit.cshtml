@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-4 offset-4">
-        <h1 class="display-4 border-bottom text-center pb-2">@ViewData["Title"]</h1>
+        <h1 class="display-4 border-bottom text-center pb-2" key=6>@ViewData["Title"]</h1>
     </div>
 </div>
 
@@ -16,26 +16,26 @@
             <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
 
             <div class="form-group mb-3">
-                <label asp-for="KullaniciAdi" class="form-label">E-mail</label>
+                <label asp-for="KullaniciAdi" class="form-label" key=0>E-mail</label>
                 <input asp-for="KullaniciAdi" class="form-control" />
                 <span asp-validation-for="KullaniciAdi" class="text-danger small"></span>
             </div>
 
             <div class="form-group mb-3">
-                <label asp-for="Sifre" class="form-label">Şifre</label>
+                <label asp-for="Sifre" class="form-label" key=1>Şifre</label>
                 <input asp-for="Sifre" type="password" class="form-control" />
                 <span asp-validation-for="Sifre" class="text-danger small"></span>
             </div>
 
             <div class="form-group mb-3">
-                <label asp-for="TekrarSifre" class="form-label">Sifreyi Tekrar Giriniz</label>
+                <label asp-for="TekrarSifre" class="form-label" key=4>Sifreyi Tekrar Giriniz</label>
                 <input asp-for="TekrarSifre" type="password" class="form-control" />
                 <span asp-validation-for="TekrarSifre" class="text-danger small"></span>
             </div>
 
 
             <div class="form-group d-grid mb-3">
-                <button type="submit" class="btn btn-primary d-block"><i class="fa-solid fa-right-to-bracket me-2"></i>Kayıt OL</button>
+                <button key=5 type="submit" class="btn btn-primary d-block"><i class="fa-solid fa-right-to-bracket me-2"></i>Kayıt Ol</button>
             </div>
         </form>
     </div>

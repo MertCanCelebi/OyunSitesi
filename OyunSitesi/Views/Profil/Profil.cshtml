@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-4 offset-4">
-        <h1 class="display-4 border-bottom text-center pb-2">@ViewData["Title"]</h1>
+        <h1 class="display-4 border-bottom text-center pb-2" key=22>@ViewData["Title"]</h1>
     </div>
 </div>
 
@@ -18,45 +18,32 @@
 
         <form method="post" asp-controller="Profil" asp-action="IsimDegisikligi">
             <div class="form-group">
-                <label class="form-label small">İsim Soyisim</label>
+                <label class="form-label small" key=23>İsim Soyisim</label>
                 <div class="input-group mb-3">
                     <input name="AdSoyad" type="text" class="form-control" value="@ViewData["AdSoyad"]" />
-                    <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>Kaydet</button>
+                    <button key=24 class ="btn btn-secondary" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>Kaydet</button>
                 </div>
                  @if (ViewData["result"] != null && ViewData["result"] == "AdDegisikligi")
                 {
-                    <span class="text-success small">Ad Değiştirildi</span>
+                    <span class="text-success small" key=27 >Ad Değiştirildi</span>
                 }
             </div>
         </form>
 
         <form method="post" asp-controller="Profil" asp-action="SifreDegisikligi">
             <div class="form-group ">
-                <label class="form-label small">Yeni Şifre</label>
+                <label class="form-label small" key=25>Yeni Şifre</label>
                 <div class="input-group">
-                    <input name="Sifre" type="password" class="form-control" />
-                    <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>Kaydet</button>
+                    <input  name="Sifre" type="password" class="form-control" />
+                    <button key=24 class="btn btn-secondary" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>Kaydet</button>
                 </div>
                 @if (ViewData["result"] != null && ViewData["result"] == "SifreDegisikligi")
                 {
-                    <span class="text-success small">Şifre Değiştirildi</span>
+                    <span class="text-success small" key=26>Şifre Değiştirildi</span>
                 }
             </div>
         </form>
 
     </div>
 </div>
-@section Scripts{
-    @if (ViewData["result"] != null && ViewData["result"] == "SifreDegisikligi")
-    {
-                <script>
-                    toastr["success"]("Şireniz değiştirilmiştir.", "Şifre Değişti!");
-                </script>
-    }
-     @if (ViewData["result"] != null && ViewData["result"] == "AdDegisikligi")
-    {
-                <script>
-                    toastr["success"]("İsminiz değiştirilmiştir.", "İsim Değişti!");
-                </script>
-    }
-}
+

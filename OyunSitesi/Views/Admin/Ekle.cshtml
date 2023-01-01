@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-4 offset-4">
-        <h1 class="display-4 border-bottom text-center pb-2">@ViewData["Title"]</h1>
+        <h1 class="display-4 border-bottom text-center pb-2" key=48>@ViewData["Title"]</h1>
     </div>
 </div>
 
@@ -16,13 +16,13 @@
             <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
 
             <div class="form-group mb-3">
-                <label asp-for="OyunAd" class="form-label">OyunAd</label>
+                <label asp-for="OyunAd" class="form-label" key=45>OyunAd</label>
                 <input asp-for="OyunAd" class="form-control" />
                 <span asp-validation-for="OyunAd" class="text-danger small"></span>
             </div>
 
             <div class="form-group mb-3">
-                <label asp-for="Icerik" class="form-label">Icerik</label>
+                <label asp-for="Icerik" class="form-label" key=46>Icerik</label>
                 <input asp-for="Icerik" class="form-control" />
                 <span asp-validation-for="Icerik" class="text-danger small"></span>
             </div>
@@ -30,7 +30,7 @@
 
 
             <div class="form-group mb-3">
-                <label asp-for="KategoriId" class="form-label">KategoriId</label>
+                <label asp-for="KategoriId" class="form-label" key=47>KategoriId</label>
                 <select asp-for="KategoriId" class="form-select">
                     <option value=0>Seçiniz</option>
                     <option value=1>Simulasyon</option>
@@ -44,19 +44,19 @@
                 <span asp-validation-for="KategoriId" class="text-danger small"></span>
             </div>
             <div class="form-group mb-3">
-                <label asp-for="Resim" class="form-label">Resim</label>
+                <label asp-for="Resim" class="form-label" key=49>Resim</label>
                 <input asp-for="Resim" class="form-control" />
                 <span asp-validation-for="Resim" class="text-danger small"></span>
             </div>
             <div class="form-group mb-3">
-                <label asp-for="Yorum" class="form-label">yorum</label>
+                <label asp-for="Yorum" class="form-label" key=18>yorum</label>
                 <input asp-for="Yorum" class="form-control" />
                 <span asp-validation-for="Yorum" class="text-danger small"></span>
             </div>
 
 
             <div class="form-group mb-3">
-                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save me-2"></i>Kaydet</button>
+                <button key=24 type="submit" class="btn btn-primary"><i class="fa-solid fa-save me-2"></i>Kaydet</button>
             </div>
         </form>
     </div>

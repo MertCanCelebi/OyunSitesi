@@ -18,6 +18,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
 
     <title>@oyun.OyunAd</title>
 
@@ -82,7 +84,7 @@
                                     </div>
                                 </div>
                                  <div class="sidebar-heading">
-                                        <h2>Yorumlar</h2>
+                                        <h2 key=18>Yorumlar</h2>
                                     </div>
                             @foreach (var item in yorumlar)
                           {
@@ -93,7 +95,7 @@
                                         <ul>
                                                      
                                                 <li>                                              
-                                                Yorum:
+                                                <p key=19> Önceki Yorumlar:</p>
                                                 <div class="right-content">                                                    
                                                     <p>@item.YorumIcerik</p>
                                                 </div>
@@ -107,7 +109,7 @@
                             <div class="col-lg-12">
                                 <div class="sidebar-item submit-comment">
                                     <div class="sidebar-heading">
-                                        <h2>Your comment</h2>
+                                        <h2 key=20>Senin Yorumun</h2>
                                     </div>
                                     <div class="form-outline mb-4">
                                         <form asp-action="YorumEkle" asp-controller="Home" method="post">
@@ -115,7 +117,7 @@
                                             <input class="form-control" asp-for="@Model.OyunId" type="hidden" value="@oyun.Id">
                                             <input class="form-control" asp-for="@Model.KullaniciId" type="hidden" value="@kullanici.Id">
                                          
-                                            <button type="submit" class="btn btn-primary">Add a note</button>
+                                            <button key=21 type="submit" class="btn btn-primary">Yorum Ekle</button>
                                         </form>
 
                                         @foreach (var item in yorumlar)
@@ -140,7 +142,12 @@
           <br />
 
              <br />
+    <br />
+    <br />
 
+    <br />
+
+    <br />
 
     <!-- Bootstrap core JavaScript -->
     <script src="~/blogtemplate/vendor/jquery/jquery.min.js"></script>
@@ -152,6 +159,11 @@
     <script src="~/blogtemplate/assets/js/slick.js"></script>
     <script src="~/blogtemplate/assets/js/isotope.js"></script>
     <script src="~/blogtemplate/assets/js/accordions.js"></script>
+    <script src="~/js/script.js" asp-append-version="true"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
 
 
     <script language="text/Javascript">
